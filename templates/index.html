@@ -11,10 +11,11 @@
     <div>
         {% for article in articles %}
             <div>
-                <h2>{{ article.title }}</h2>
-                <p><strong>Source:</strong> {{ article.source }}</p>
-                <p><strong>Date:</strong> {{ article.pubDate }}</p>
-                <a href="{{ article.link }}" target="_blank">Read More</a>
+                <h2>{{ article[1] }}</h2>
+                <p><strong>Summary:</strong> {{ article[2] }}</p>
+                <p><strong>Source:</strong> {{ article[4] }}</p>
+                <p><strong>Date:</strong> {{ article[5] }}</p>
+                <a href="{{ article[3] }}" target="_blank">Read More</a>
             </div>
         {% endfor %}
     </div>

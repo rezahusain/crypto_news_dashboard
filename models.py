@@ -18,6 +18,7 @@ class NewsArticle(Base):
 
 # SQLite connection string
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-engine = create_engine(f"sqlite:///{os.path.join(BASE_DIR, 'instance/news.db')}")
+DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'instance/news.db')}"
+engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
 SessionLocal = sessionmaker(bind=engine)

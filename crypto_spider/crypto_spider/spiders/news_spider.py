@@ -2,10 +2,12 @@ import scrapy
 import json
 import os
 from dotenv import load_dotenv
+from datetime import datetime
 
 class NewsSpider(scrapy.Spider):
     name = "news"
     allowed_domains = ["newsdata.io"]
+    # Loads the API key from env file 
     load_dotenv()
 
     def __init__(self, *args, **kwargs):
@@ -25,12 +27,15 @@ class NewsSpider(scrapy.Spider):
     def parse(self, response):
         try:
             data = json.loads(response.body)
+            # Creates a json array for each article
+            # in order to be accessed by pipeline
             for article in data.get("results", []):
                 yield {
                     "title": article.get("title"),
-                    "link": article.get("link"),
-                    "pubDate": article.get("pubDate"),
-                    "source": article.get("source_id")
+                    "summary" : article.get("description"),
+                    "url": article.get("link"),
+                    "source": article.get("source_name"),
+                    "published_at": article.get("pubDate")
                 }
         except Exception as e:
             self.logger.error(f"Failed to parse: {e}")

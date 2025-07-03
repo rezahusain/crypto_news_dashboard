@@ -19,18 +19,31 @@ class SaveToDatabasePipeline:
         self.session = SessionLocal()
     
     def process_item(self, item, spider):
-        article = NewsArticle(
-            title=item.get("title"),
-            summary=item.get("description") or "",  # if using NewsData API
-            url=item.get("link"),
-            source=item.get("source") or item.get("source_id"),
-            published_at=datetime.fromisoformat(item.get("pubDate")) if item.get("pubDate") else None
-        )
+
         try:
+            pub_date = item.get("published_at")
+
+            # Makes sure pub date is compatible with sqlite
+            if isinstance(pub_date, str):
+                try:
+                    pub_date = datetime.strptime(pub_date, "%Y-%m-%d %H:%M")
+                except ValueError:
+                    pub_date = None 
+            
+            # Prepares the NewsArticle object for insertion into db
+            article = NewsArticle(
+                title=item.get("title") or "Untitled",
+                summary=item.get("summary") or "", 
+                url=item.get("url"),
+                source=item.get("source") or "unknown",
+                published_at=pub_date
+            )
             self.session.add(article)
             self.session.commit()
-        except IntegrityError:
+            spider.logger.info(f"Article saved: {item.get('title')}")
+        except IntegrityError as e:
             self.session.rollback()
+            spider.logger.error(f"Failed to insert item: {e}")
         return item
     
     def close_spider(self, spider):
