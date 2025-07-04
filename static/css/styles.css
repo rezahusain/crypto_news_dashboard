@@ -1,26 +1,20 @@
+/* styles.css — GLOBAL */
 body {
-    background-color: #0f172a; /* dark slate */
-    color: #e2e8f0; /* soft light gray */
+    background-color: #0f172a;
+    color: #f1f5f9;
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-h2 {
-    color: #93c5fd; /* soft blue for headings */
-    text-align: center;
-    margin-top: 2rem;
+h1, h2, h3 {
+    margin: 0;
     font-weight: 600;
-    font-size: 2rem;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .card {
@@ -29,6 +23,7 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #e2e8f0;
 }
 
 .card:hover {
@@ -36,31 +31,12 @@ h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
-.card h3 {
-    font-size: 1.1rem;
-    color: #f8fafc;
-    margin-bottom: 0.5rem;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: #cbd5e1;
-}
-
-.meta {
-    font-size: 0.75rem;
-    color: #94a3b8;
-    margin-top: 0.75rem;
-}
-
 .read-more {
-    margin-top: 1rem;
     display: inline-block;
     background-color: #3b82f6;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 6px;
-    text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
     transition: background-color 0.2s ease;
@@ -68,4 +44,10 @@ h2 {
 
 .read-more:hover {
     background-color: #2563eb;
+}
+
+.meta {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 0.75rem;
 }

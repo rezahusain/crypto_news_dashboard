@@ -54,45 +54,45 @@
         </section>
     <div class="landing-content">
         <section class="py-5 text-light" style="background-color: #0b0e1a;">
-        <div class="container">
-            <h2 class="text-center mb-5 display-6 fw-bold">
-            🔥 Trending Crypto Headlines
-            </h2>
+            <div class="container">
+                <h2 class="text-center mb-5 display-6 fw-bold">
+                🔥 Trending Crypto Headlines
+                </h2>
 
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            {% for preview in sample_articles %}
-            <div class="col">
-                <div class="card h-100 border-0 shadow-sm bg-dark text-light">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-primary">{{ preview.title }}</h5>
-                    <p class="card-text text-muted flex-grow-1">
-                    {{ preview.summary or "Summary unavailable." }}
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center text-secondary small mt-3">
-                    <span>{{ preview.source }}</span>
-                    <span>
-                        {% if preview.published_at %}
-                        {{ preview.published_at.strftime('%b %d, %Y') }}
-                        {% endif %}
-                    </span>
+                <div class="row g-4">
+                {% for preview in sample_articles %}
+                <div class="col-12 col-sm-6 col-lg-4 mb-5">
+                    <div class="card h-100 border-3 shadow-sm bg-dark text-light">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-primary">{{ preview.title }}</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                            {{ preview.summary[:180] ~ '...' or "Summary unavailable." }}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center text-secondary small mt-3">
+                            <span>{{ preview.source }}</span>
+                            <span>
+                                {% if preview.published_at %}
+                                {{ preview.published_at.strftime('%b %d, %Y') }}
+                                {% endif %}
+                            </span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 text-end">
+                            <a href="{{ preview.url }}" class="btn btn-outline-primary btn-sm" target="_blank">
+                            Read more →
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="card-footer bg-transparent border-0 text-end">
-                    <a href="{{ preview.url }}" class="btn btn-outline-primary btn-sm" target="_blank">
-                    Read more →
-                    </a>
+                {% endfor %}
                 </div>
-                </div>
-            </div>
-            {% endfor %}
-            </div>
 
-            <div class="text-center mt-5">
-            <a href="/news" class="btn btn-primary btn-lg">
-                Explore Full Dashboard
-            </a>
+                <div class="text-center mt-5">
+                <a href="/news" class="btn btn-primary btn-lg">
+                    Explore Full Dashboard
+                </a>
+                </div>
             </div>
-        </div>
         </section>
 
     </div>

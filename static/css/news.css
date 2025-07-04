@@ -1,0 +1,9 @@
+/* news.css */
+.card {
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
