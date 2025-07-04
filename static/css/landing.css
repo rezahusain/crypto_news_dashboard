@@ -1,0 +1,88 @@
+body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*.landing-content {
+    margin: 2%;
+    padding: 2%;
+}*/
+
+.hero {
+    padding: 6rem 2rem;
+    text-align: center;
+    background: linear-gradient(to bottom, #0f172a, #1e293b);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #3b82f6;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+.hero .cta {
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.hero .cta:hover {
+    background-color: #2563eb;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    background-color: #1e293b;
+}
+
+.feature {
+    text-align: center;
+    padding: 1rem;
+    background-color: #334155;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.feature h3 {
+    color: #93c5fd;
+    margin-bottom: 0.5rem;
+}
+
+.ticker {
+  background-color: #1e293b;
+  color: #f8fafc;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-family: monospace;
+  border-top: 1px solid #334155;
+  border-bottom: 1px solid #334155;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #0f172a;
+    font-size: 0.9rem;
+    color: #64748b;
+}

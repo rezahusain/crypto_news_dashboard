@@ -1,0 +1,107 @@
+{% extends "index.html" %}
+
+{% block stylesheet %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}"> 
+{% endblock %}
+
+{% block js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      VANTA.NET({
+        el: "#hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x0ff,             // optional color tweaks
+        backgroundColor: 0x0a0a1a // matches your dark theme
+      });
+    });
+  </script>
+{% endblock %}
+
+
+{% block landing_page %}
+
+        <section class="hero" id="hero">
+            <h1>📈 Stay Ahead of the Crypto Curve</h1>
+            <p>Real-time news. Intelligent insights. No noise.</p>
+            <a href="{{ url_for('news') }}" class="cta">View Dashboard</a>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <h3>📰 Real-time Updates</h3>
+                <p>News feeds sourced from trusted crypto publications.</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Lightweight</h3>
+                <p>Minimalistic and fast — no bloat, no login needed.</p>
+            </div>
+            <div class="feature">
+                <h3>📊 Focused on Crypto</h3>
+                <p>Tailored exclusively to track the digital asset space.</p>
+            </div>
+            <div class="feature">
+                <h3>🌑 Sleek Dark Theme</h3>
+                <p>Optimized for long reads and night viewing.</p>
+            </div>
+        </section>
+    <div class="landing-content">
+        <section class="py-5 text-light" style="background-color: #0b0e1a;">
+        <div class="container">
+            <h2 class="text-center mb-5 display-6 fw-bold">
+            🔥 Trending Crypto Headlines
+            </h2>
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for preview in sample_articles %}
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm bg-dark text-light">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-primary">{{ preview.title }}</h5>
+                    <p class="card-text text-muted flex-grow-1">
+                    {{ preview.summary or "Summary unavailable." }}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center text-secondary small mt-3">
+                    <span>{{ preview.source }}</span>
+                    <span>
+                        {% if preview.published_at %}
+                        {{ preview.published_at.strftime('%b %d, %Y') }}
+                        {% endif %}
+                    </span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-end">
+                    <a href="{{ preview.url }}" class="btn btn-outline-primary btn-sm" target="_blank">
+                    Read more →
+                    </a>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+
+            <div class="text-center mt-5">
+            <a href="/news" class="btn btn-primary btn-lg">
+                Explore Full Dashboard
+            </a>
+            </div>
+        </div>
+        </section>
+
+    </div>
+
+    <div class="ticker mt-10">
+        <marquee behavior="scroll" direction="left">
+            🟢 BTC: $63,400 &nbsp;&nbsp; 🔴 ETH: $3,050 &nbsp;&nbsp; 🟢 SOL: $142 &nbsp;&nbsp; 🔴 DOGE: $0.123 &nbsp;&nbsp; 🟢 ADA: $0.38
+        </marquee>
+    </div>
+
+
+{% endblock %}

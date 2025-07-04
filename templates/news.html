@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block stylesheet %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> 
+{% endblock %}
+
+{% block news %}
+<section class="py-5" style="background-color: #0b1120; min-height: 100vh;">
+    <div class="container text-white">
+        <h2 class="text-center fw-bold mb-5">
+            📈 <span class="text-primary">Latest Cryptocurrency News</span>
+        </h2>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for article in articles %}
+            <div class="col">
+                <div class="card h-100 bg-dark text-light shadow rounded-3 border border-primary-subtle">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title fw-semibold">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.summary[:180] ~ '...' if article.summary }}</p>
+                    </div>
+                    <div class="card-footer border-0 bg-transparent text-muted small">
+                        {{ article.source }} &bullet;
+                        {{ article.published_at.strftime('%Y-%m-%d') if article.published_at }}
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <a href="{{ article.url }}" target="_blank" class="btn btn-sm btn-outline-primary w-100">Read more</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
