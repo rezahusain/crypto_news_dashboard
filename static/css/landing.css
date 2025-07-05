@@ -2,7 +2,7 @@
 .hero {
     padding: 6rem 2rem;
     text-align: center;
-    background: linear-gradient(to bottom, #0f172a, #1e293b);
+    /*background: linear-gradient(to bottom, #0f172a, #1e293b);*/
 }
 
 .hero h1 {
@@ -37,15 +37,15 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     padding: 3rem 2rem;
-    background-color: #1e293b;
+    /*background-color: #1e293b;*/
 }
 
 .feature {
-    text-align: center;
-    padding: 1rem;
-    background-color: #334155;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 .feature h3 {
@@ -53,15 +53,25 @@
     margin-bottom: 0.5rem;
 }
 
-.ticker {
-    background-color: #1e293b;
-    color: #f8fafc;
-    padding: 0.5rem;
-    font-weight: bold;
-    font-family: monospace;
-    border-top: 1px solid #334155;
-    border-bottom: 1px solid #334155;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.feature-slide {
+  background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #e2e8f0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.feature-slide:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-item {
+  transition: transform 0.6s ease;
+}
+
+.carousel-container {
+  max-width: 800px;
+  margin: 2rem auto;
 }
