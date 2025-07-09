@@ -59,7 +59,14 @@
                     <h2 class="text-center mb-5 display-6 fw-bold">
                     🔥 Trending Crypto Headlines
                     </h2>
-
+                    <div class="text-center text-muted mb-4">
+                        Last updated:
+                        {% if last_updated %}
+                            {{ last_updated.strftime('%Y-%m-%d %H:%M UTC') }}
+                        {% else %}
+                            Loading...
+                        {% endif %}
+                    </div>
                     <div class="row g-4">
                     {% for preview in sample_articles %}
                     <div class="col-12 col-sm-6 col-lg-4 mb-5">

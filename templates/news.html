@@ -10,7 +10,14 @@
         <h2 class="text-center fw-bold mb-5">
             📈 <span class="text-primary">Latest Cryptocurrency News</span>
         </h2>
-
+        <div class="text-center text-muted mb-4">
+            Last updated:
+            {% if last_updated %}
+                {{ last_updated.strftime('%Y-%m-%d %H:%M UTC') }}
+            {% else %}
+                Loading...
+            {% endif %}
+        </div>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for article in articles %}
             <div class="col">
