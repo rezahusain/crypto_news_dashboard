@@ -37,6 +37,7 @@
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     padding: 3rem 2rem;
+    padding-top:25rem;
     /*background-color: #1e293b;*/
 }
 
@@ -74,4 +75,28 @@
 .carousel-container {
   max-width: 800px;
   margin: 2rem auto;
+}
+
+.landing-content{
+  padding-top: 25rem;
+}
+.scroll-down {
+  position: relative;
+  bottom: 2rem;
+  left: 45%;
+  transform: translateX(-45%);
+  font-size: 1rem;
+  color: #93c5fd;
+  text-decoration: none;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+html {
+  scroll-behavior: smooth;
 }

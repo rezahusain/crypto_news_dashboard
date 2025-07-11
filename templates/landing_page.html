@@ -12,57 +12,71 @@
             <a href="{{ url_for('news') }}" class="cta">View Dashboard</a>
         </section>
 
-        <section class="features container my-5">
-            <div id="featureCarousel" class="carousel slide carousel-dark">
-                <div class="carousel-inner container carousel-container">
-                    <div class="carousel-item active">
-                        <div class="feature-slide text-center">
-                            <h3>📰 Real-time Updates</h3>
-                            <p>News feeds sourced from trusted crypto publications.</p>
+        <a href="#featureScroll" class="scroll-down">
+            ⬇ Scroll to Explore
+        </a>
+
+        <div data-aos="zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+            data-aos-offset="0"
+            data-aos-anchor-placement="top-center">
+            <section class="features container my-5" id="featureScroll">
+                <div id="featureCarousel" class="carousel slide carousel-dark">
+                    <div class="carousel-inner container carousel-container">
+                        <div class="carousel-item active">
+                            <div class="feature-slide text-center">
+                                <h3>📰 Real-time Updates</h3>
+                                <p>News feeds sourced from trusted crypto publications.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="feature-slide text-center">
+                                <h3>⚡ Lightweight</h3>
+                                <p>Minimalistic and fast — no bloat, no login needed.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="feature-slide text-center">
+                                <h3>📊 Focused on Crypto</h3>
+                                <p>Tailored exclusively to track the digital asset space.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="feature-slide text-center">
+                                <h3>🌑 Sleek Dark Theme</h3>
+                                <p>Optimized for long reads and night viewing.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="feature-slide text-center">
-                            <h3>⚡ Lightweight</h3>
-                            <p>Minimalistic and fast — no bloat, no login needed.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="feature-slide text-center">
-                            <h3>📊 Focused on Crypto</h3>
-                            <p>Tailored exclusively to track the digital asset space.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="feature-slide text-center">
-                            <h3>🌑 Sleek Dark Theme</h3>
-                            <p>Optimized for long reads and night viewing.</p>
-                        </div>
-                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#featureCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#featureCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
+            </section>
+        </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#featureCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#featureCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </section>
-
-
+        <div data-aos="zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+            data-aos-offset="0"
+            data-aos-anchor-placement="top-center">
         <div class="landing-content">
             <section class="py-5 text-light" id="landing-content">
                 <div class="container">
                     <h2 class="text-center mb-5 display-6 fw-bold">
                     🔥 Trending Crypto Headlines
                     </h2>
-                    <div class="text-center text-muted mb-4">
+                    <div class="text-center mb-4">
                         Last updated:
                         {% if last_updated %}
-                            {{ last_updated.strftime('%Y-%m-%d %H:%M UTC') }}
+                            {{ last_updated }}
                         {% else %}
                             Loading...
                         {% endif %}
@@ -103,6 +117,6 @@
                 </div>
             </section>
         </div>
-
+    </div>
 
 {% endblock %}
