@@ -23,13 +23,17 @@ class SaveToDatabasePipeline:
         try:
             pub_date = item.get("published_at")
 
-            # Makes sure pub date is compatible with sqlite
+            from datetime import datetime
+
             if isinstance(pub_date, str):
                 try:
                     pub_date = datetime.strptime(pub_date, "%Y-%m-%d %H:%M")
                 except ValueError:
-                    pub_date = None 
-            
+                    try:
+                        pub_date = datetime.strptime(pub_date, "%Y-%m-%d %H:%M:%S")
+                    except ValueError:
+                        pub_date = None
+
             # Prepares the NewsArticle object for insertion into db
             article = NewsArticle(
                 title=item.get("title") or "Untitled",
