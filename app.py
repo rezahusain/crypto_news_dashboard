@@ -13,6 +13,7 @@ from scrapy_runner import run_spider
 from flask import Flask, render_template, request
 from models import SessionLocal, NewsArticle
 import atexit
+from markets import get_market_data
 
 app = Flask(__name__)
 DATABASE_PATH ='instance/news.db'
@@ -115,6 +116,15 @@ def news():
         total_pages=total_pages,
         last_updated=get_last_updated()
     )
+
+@app.route("/markets")
+def markets():
+    market_data = get_market_data()
+    return render_template('markets.html', data=market_data)
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     scheduled_job()
